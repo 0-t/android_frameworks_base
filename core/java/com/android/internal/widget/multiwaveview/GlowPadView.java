@@ -687,13 +687,8 @@ public class GlowPadView extends View {
         return mTargetResourceId;
     }
 
-    public void setTargetResources(ArrayList<TargetDrawable> drawList) {
-        if (mAnimatingTargets) {
-            // postpone this change until we return to the initial state
-            mNewTargetDrawables = drawList;
-        } else {
-            internalSetTargetResources(drawList);
-        }
+    public ArrayList<TargetDrawable> getTargetDrawables() {
+        return mTargetDrawables;
     }
 
     /**
@@ -1281,14 +1276,6 @@ public class GlowPadView extends View {
         }
         mHandleDrawable.draw(canvas);
 
-        if (mArcAngle > 0 && mHandleDrawable.getAlpha() > 0) {
-            mArcRect.set(mHandleDrawable.getPositionX() - mHandleDrawable.getWidth()/3,
-                    mHandleDrawable.getPositionY() - mHandleDrawable.getHeight()/3,
-                    mHandleDrawable.getPositionX() + mHandleDrawable.getWidth()/3,
-                    mHandleDrawable.getPositionY() + mHandleDrawable.getHeight()/3);
-
-            canvas.drawArc(mArcRect, -90, mArcAngle, false, mArcPaint);
-        }
         if (!TextUtils.isEmpty(mHandleText) && mPaintText.getAlpha() != 0) {
             float x = mHandleDrawable.getPositionX();
             float y = mHandleDrawable.getPositionY();
