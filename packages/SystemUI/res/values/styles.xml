@@ -208,6 +208,7 @@
         <item name="android:shadowDy">2</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
 
     <style name="TextAppearance.StatusBar.NetworkStats"
            parent="@*android:style/TextAppearance.StatusBar">
